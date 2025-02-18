@@ -2,45 +2,33 @@ import os
 import re
 import json
 
-# Load data from the JSON file
-with open("data.json", "r") as f:
+
+with open("./ data.json", "r") as f:
     data = json.load(f)
 
-
-# Helper function to extract the first value
 def get_first(lst):
     return lst[0].strip() if lst else None
 
-
-# Extract numeric values
 def extract_number(value):
     match = re.search(r"[\d.]+", value)
     return float(match.group()) if match else 0.0
-
 
 def extract_int(value):
     match = re.search(r"\d+", value)
     return int(match.group()) if match else 0
 
-
-# Extract available colors
 def get_available_colors(available_colours):
     available = []
     for entry in available_colours:
-        # Extract color
         color_match = re.search(r"Color (.+)", entry)
         color = color_match.group(1).strip() if color_match else "Unknown"
 
-        # Check if "unavailable" is not present
         if "unavailable" not in entry.lower():
             available.append(color)
 
     return available
 
-
-# Transform the data
 transformed_data = []
-
 for item in data:
     new_item = {
         "name": get_first(item.get("name")),
@@ -52,13 +40,10 @@ for item in data:
     }
     transformed_data.append(new_item)
 
-# Save to a new JSON file
 with open("filtered_data.json", "w") as f:
     json.dump(transformed_data, f, indent=2)
 
-# Print the output for verification
 print(json.dumps(transformed_data, indent=2))
 
-# Delete data.json after processing
-os.remove("data.json")
-print("Processing complete. data.json has been deleted.")
+os.remove("./ data.json")
+print("Processing completed. <data.json> has been deleted.")

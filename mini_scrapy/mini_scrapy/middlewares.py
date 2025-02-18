@@ -12,6 +12,7 @@ from scrapy.http import HtmlResponse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+
 class CustomSeleniumDownloaderMiddleWare:
 
     def __init__(self):
@@ -29,6 +30,7 @@ class CustomSeleniumDownloaderMiddleWare:
 
     def process_response(self, request, response, spider):
         return response
+
 
 class MiniScrapySpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
