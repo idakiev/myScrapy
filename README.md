@@ -15,7 +15,7 @@ A small project focused on retrieving information from a web store.
     ```
 4. Navigate to scrapy project folder.
     ```
-      cd MyScrapy/mini_scrapy
+      cd myScrapy/mini_scrapy
     ```
 5. Run 'scrape.py':
     ```
